@@ -428,9 +428,9 @@ function App() {
           <h3 className="footer-title">Office Hours</h3>
           <div className="footer-info">
             <p>Monday to Friday</p>
-            <p>9:00 am to 6:00 pm</p>
+            <p>7:00 am to 6:00 pm</p>
             <p>Saturday</p>
-            <p>9:00 am to 12:00 noon</p>
+            <p>8:00 am to 8:00 pm</p>
           </div>
         </div>
         
