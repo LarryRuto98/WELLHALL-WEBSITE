@@ -20,7 +20,7 @@ const rooms = [
     bedConfig: '1 QUEEN OR 2 SINGLE BEDS'
   },
   {
-    type: 'Studio Room',
+    type: 'Standard Room',
     image: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c',
     price: 150,
     description: 'Cozy studio room perfect for short stays.',
@@ -33,23 +33,23 @@ const specialOffers = [
   {
     id: 1,
     title: 'Dine & Stay Package',
-    image: 'https://images.unsplash.com/photo-1540304453527-62f979142a17',
+    image: 'https://cdn.standardmedia.co.ke/images/wysiwyg/images/3TRIARUa0wXn7l3oopVn3pwAybhgrXyDDh0akwX0.jpg',
     details: [
       { title: 'Gourmet Dining Experience', description: 'Complimentary welcome drink & dessert' },
       { title: 'Luxurious stay', description: 'Breakfast buffet for two' },
-      { title: 'A Complementary bottle of wine/champagne', description: 'in the room' },
+      { title: 'A Complementary bottle of wine/champagnein the room', description: 'Abottle on the house for Luxurious Rooms' },
       { title: 'Extra Delights', description: 'Free access to hotel pool gym & sauna' }
     ]
   },
   {
     id: 2,
     title: 'City Tour Package',
-    image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df',
+    image: 'https://eldoret.city/wp-content/uploads/2023/06/Skyline_of_Eldoret_city.jpg',
     details: [
       { title: 'City Tour Experience', description: 'Guided half-day/full day city tour with experienced guide' },
       { title: 'Extra Delights', description: 'Airport pick-up & drop-off service' },
-      { title: '', description: 'Complimentary bike rental for day exploration' },
-      { title: '', description: 'Airport Transfers available upon request' }
+      { title: 'City Adventure', description: 'Complimentary bike rental for day exploration' },
+      { title: 'Client Support', description: 'Airport Transfers available upon request' }
     ]
   }
 ];
@@ -57,7 +57,7 @@ const specialOffers = [
 const aboutUsContent = {
   title: 'ABOUT US',
   text: 'Nestled in the serene outskirts of Eldoret, in the charming location of Merewet, Wellhall Hotel is your perfect escape from the hustle and bustle of city life. Our hotel blends modern luxury with warm hospitality, offering guests an unforgettable stay surrounded by nature\'s tranquility. Whether you\'re visiting for business, leisure, or a romantic getaway, we provide a range of elegantly designed rooms that promise comfort and relaxation. Our exceptional dining experiences, personalized city tour packages, and exclusive dine & stay offers ensure every moment spent with us is truly special.',
-  image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945'
+  image: 'https://media-cdn.tripadvisor.com/media/photo-p/1c/9a/3a/fc/img-20210126-200336-023.jpg'
 };
 
 function App() {

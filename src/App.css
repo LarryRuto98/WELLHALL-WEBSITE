@@ -73,6 +73,8 @@
   background-color: #6b4423;
   color: white !important;
   border-radius: 4px;
+  position:absolute;
+  bottom: 0.5rem;
 }
 
 .book-now:hover::after {
@@ -362,6 +364,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 1.3rem;
 }
 
 .about-us-image {
