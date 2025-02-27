@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaTwitter, FaInstagram, FaFacebook, FaArrowRight, FaArrowLeft, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { FaTwitter, FaInstagram, FaFacebook, FaArrowRight, FaArrowLeft, FaMapMarkerAlt, FaPhone, FaEnvelope, FaSearch, FaSignOutAlt } from 'react-icons/fa';
 import './App.css';
 
 const rooms = [
@@ -7,19 +7,25 @@ const rooms = [
     type: 'Luxury Room',
     image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304',
     price: 300,
-    description: 'Spacious luxury room with modern amenities and city view.'
+    description: 'Spacious luxury room with modern amenities and city view.',
+    maxGuests: 3,
+    bedConfig: '1 QUEEN OR 2 SINGLE BEDS'
   },
   {
     type: 'Deluxe Room',
     image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39',
     price: 200,
-    description: 'Comfortable deluxe room with premium furnishings.'
+    description: 'Comfortable deluxe room with premium furnishings.',
+    maxGuests: 3,
+    bedConfig: '1 QUEEN OR 2 SINGLE BEDS'
   },
   {
-    type: 'Standard Room',
+    type: 'Studio Room',
     image: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c',
     price: 150,
-    description: 'Cozy studio room perfect for short stays.'
+    description: 'Cozy studio room perfect for short stays.',
+    maxGuests: 2,
+    bedConfig: '1 QUEEN OR KING BED'
   }
 ];
 
@@ -27,23 +33,23 @@ const specialOffers = [
   {
     id: 1,
     title: 'Dine & Stay Package',
-    image: 'https://cdn.standardmedia.co.ke/images/wysiwyg/images/3TRIARUa0wXn7l3oopVn3pwAybhgrXyDDh0akwX0.jpg',
+    image: 'https://images.unsplash.com/photo-1540304453527-62f979142a17',
     details: [
       { title: 'Gourmet Dining Experience', description: 'Complimentary welcome drink & dessert' },
       { title: 'Luxurious stay', description: 'Breakfast buffet for two' },
-      { title: 'A Complementary bottle of wine/champagne in the room', description: 'A Bottle on the house for luxurious rooms' },
+      { title: 'A Complementary bottle of wine/champagne', description: 'in the room' },
       { title: 'Extra Delights', description: 'Free access to hotel pool gym & sauna' }
     ]
   },
   {
     id: 2,
     title: 'City Tour Package',
-    image: 'https://eldoret.city/wp-content/uploads/2023/06/Skyline_of_Eldoret_city.jpg',
+    image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df',
     details: [
       { title: 'City Tour Experience', description: 'Guided half-day/full day city tour with experienced guide' },
       { title: 'Extra Delights', description: 'Airport pick-up & drop-off service' },
-      { title: 'City Adventure', description: 'Complimentary bike rental for day exploration' },
-      { title: 'Client Support', description: 'Airport Transfers available upon request' }
+      { title: '', description: 'Complimentary bike rental for day exploration' },
+      { title: '', description: 'Airport Transfers available upon request' }
     ]
   }
 ];
@@ -51,22 +57,183 @@ const specialOffers = [
 const aboutUsContent = {
   title: 'ABOUT US',
   text: 'Nestled in the serene outskirts of Eldoret, in the charming location of Merewet, Wellhall Hotel is your perfect escape from the hustle and bustle of city life. Our hotel blends modern luxury with warm hospitality, offering guests an unforgettable stay surrounded by nature\'s tranquility. Whether you\'re visiting for business, leisure, or a romantic getaway, we provide a range of elegantly designed rooms that promise comfort and relaxation. Our exceptional dining experiences, personalized city tour packages, and exclusive dine & stay offers ensure every moment spent with us is truly special.',
-  image: 'https://media-cdn.tripadvisor.com/media/photo-p/1c/9a/3a/fc/img-20210126-200336-023.jpg'
+  image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945'
 };
 
 function App() {
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [currentPage, setCurrentPage] = useState('home');
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [registerEmail, setRegisterEmail] = useState('');
+  const [registerPassword, setRegisterPassword] = useState('');
+  const [registerName, setRegisterName] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [users, setUsers] = useState([
+    { email: 'test@example.com', password: 'password123', name: 'Test User' }
+  ]);
 
   const handleBooking = (room) => {
     setSelectedRoom(room);
-    // Add booking logic here
-    alert(`Booking ${room.type}`);
+    if (isLoggedIn) {
+      alert(`Booking ${room.type}`);
+    } else {
+      setShowLoginModal(true);
+    }
   };
 
   const handleBookOffer = (offer) => {
-    alert(`Booking ${offer.title} package. Our team will contact you shortly with details.`);
+    if (isLoggedIn) {
+      alert(`Booking ${offer.title} package. Our team will contact you shortly with details.`);
+    } else {
+      setShowLoginModal(true);
+    }
   };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const foundUser = users.find(u => u.email === loginEmail && u.password === loginPassword);
+    if (foundUser) {
+      setUser(foundUser);
+      setIsLoggedIn(true);
+      setShowLoginModal(false);
+      setCurrentPage('dashboard');
+    } else {
+      alert('Invalid email or password');
+    }
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    if (!registerEmail || !registerPassword || !registerName) {
+      alert('Please fill in all fields');
+      return;
+    }
+    
+    if (users.some(u => u.email === registerEmail)) {
+      alert('Email already registered');
+      return;
+    }
+    
+    const newUser = { email: registerEmail, password: registerPassword, name: registerName };
+    setUsers([...users, newUser]);
+    setUser(newUser);
+    setIsLoggedIn(true);
+    setShowRegisterModal(false);
+    setCurrentPage('dashboard');
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUser(null);
+    setCurrentPage('home');
+  };
+
+  const filteredRooms = searchQuery 
+    ? rooms.filter(room => 
+        room.type.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        room.description.toLowerCase().includes(searchQuery.toLowerCase()))
+    : rooms;
+
+  const renderLoginModal = () => (
+    <div className="modal-overlay">
+      <div className="login-modal">
+        <button className="close-modal" onClick={() => setShowLoginModal(false)}>×</button>
+        <h2>Login</h2>
+        <form onSubmit={handleLogin}>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              value={loginEmail} 
+              onChange={(e) => setLoginEmail(e.target.value)} 
+              required 
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input 
+              type="password" 
+              id="password" 
+              value={loginPassword} 
+              onChange={(e) => setLoginPassword(e.target.value)} 
+              required 
+            />
+          </div>
+          <button type="submit" className="login-button">Login</button>
+        </form>
+        <p className="register-link">
+          Don't have an account? 
+          <button 
+            onClick={() => {
+              setShowLoginModal(false);
+              setShowRegisterModal(true);
+            }}
+          >
+            Register
+          </button>
+        </p>
+      </div>
+    </div>
+  );
+
+  const renderRegisterModal = () => (
+    <div className="modal-overlay">
+      <div className="login-modal">
+        <button className="close-modal" onClick={() => setShowRegisterModal(false)}>×</button>
+        <h2>Create Account</h2>
+        <form onSubmit={handleRegister}>
+          <div className="form-group">
+            <label htmlFor="register-name">Full Name</label>
+            <input 
+              type="text" 
+              id="register-name" 
+              value={registerName} 
+              onChange={(e) => setRegisterName(e.target.value)} 
+              required 
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="register-email">Email</label>
+            <input 
+              type="email" 
+              id="register-email" 
+              value={registerEmail} 
+              onChange={(e) => setRegisterEmail(e.target.value)} 
+              required 
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="register-password">Password</label>
+            <input 
+              type="password" 
+              id="register-password" 
+              value={registerPassword} 
+              onChange={(e) => setRegisterPassword(e.target.value)} 
+              required 
+            />
+          </div>
+          <button type="submit" className="login-button">Register</button>
+        </form>
+        <p className="register-link">
+          Already have an account? 
+          <button 
+            onClick={() => {
+              setShowRegisterModal(false);
+              setShowLoginModal(true);
+            }}
+          >
+            Login
+          </button>
+        </p>
+      </div>
+    </div>
+  );
 
   const renderHomePage = () => (
     <>
@@ -196,8 +363,53 @@ function App() {
         >
           About Us
         </button>
-      </div>,
+      </div>
+      
+      {/* Footer only appears on the About Us page */}
       {renderFooter()}
+    </div>
+  );
+
+  const renderDashboardPage = () => (
+    <div className="dashboard-container">
+      <div className="dashboard-header">
+        <h1 className="dashboard-title">AVAILABLE ROOMS</h1>
+        <div className="search-container">
+          <input 
+            type="text" 
+            placeholder="search room type or amenities" 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="search-input"
+          />
+          <button className="search-button">
+            <FaSearch /> Search
+          </button>
+        </div>
+      </div>
+      
+      <div className="dashboard-rooms">
+        {filteredRooms.map((room, index) => (
+          <div key={index} className="dashboard-room-card">
+            <img src={room.image} alt={room.type} className="dashboard-room-image" />
+            <h2 className="dashboard-room-title">{room.type}</h2>
+            <p className="dashboard-room-details">MAX {room.maxGuests} GUESTS / {room.bedConfig}</p>
+            <button 
+              className="dashboard-book-button"
+              onClick={() => handleBooking(room)}
+            >
+              Book Now
+            </button>
+          </div>
+        ))}
+      </div>
+      
+      <button 
+        className="back-to-home-button"
+        onClick={() => setCurrentPage('home')}
+      >
+        BACK TO HOME
+      </button>
     </div>
   );
 
@@ -205,6 +417,7 @@ function App() {
     if (currentPage === 'home') return renderHomePage();
     if (currentPage === 'offers') return renderSpecialOffersPage();
     if (currentPage === 'about') return renderAboutUsPage();
+    if (currentPage === 'dashboard') return renderDashboardPage();
     return renderHomePage();
   };
 
@@ -258,15 +471,28 @@ function App() {
         <h1 className="hotel-title">THE WELLHALL HOTEL</h1>
         <div className="nav-links">
           <a href="#home" onClick={() => setCurrentPage('home')}>HOME</a>
-          <a href="#login">LOGIN</a>
-          <a href="#book" className="book-now">BOOK NOW</a>
+          {isLoggedIn ? (
+            <>
+              <a href="#dashboard" onClick={() => setCurrentPage('dashboard')}>MY ACCOUNT</a>
+              <a href="#logout" onClick={handleLogout} className="logout-button">
+                LOGOUT <FaSignOutAlt />
+              </a>
+            </>
+          ) : (
+            <>
+              <a href="#login" onClick={() => setShowLoginModal(true)}>LOGIN</a>
+              <a href="#book" className="book-now">BOOK NOW</a>
+            </>
+          )}
         </div>
       </nav>
 
       {renderContent()}
       
+      {showLoginModal && renderLoginModal()}
+      {showRegisterModal && renderRegisterModal()}
     </div>
   );
 }
 
-export default App
+export default App;

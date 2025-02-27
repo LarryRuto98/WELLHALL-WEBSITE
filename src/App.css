@@ -10,7 +10,6 @@
   flex-direction: column;
 }
 
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -74,11 +73,23 @@
   background-color: #6b4423;
   color: white !important;
   border-radius: 4px;
-  position: absolute;
-  bottom: 0.5rem;
 }
 
 .book-now:hover::after {
+  width: 0;
+}
+
+.logout-button {
+  padding: 0.5rem 1rem;
+  background-color: #6b4423;
+  color: white !important;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logout-button:hover::after {
   width: 0;
 }
 
@@ -351,7 +362,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 1.3rem;
 }
 
 .about-us-image {
@@ -387,7 +397,7 @@
 .footer-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.5rem;
   position: relative;
   color: #f5f5f1;
 }
@@ -457,6 +467,252 @@
   color: white;
 }
 
+/* Login Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.login-modal {
+  background-color: #f5f5f1;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b4423;
+}
+
+.login-modal h2 {
+  font-family: 'Playfair Display', serif;
+  color: #6b4423;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #6b4423;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #6b4423;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #8b5e3c;
+}
+
+.register-link {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #666;
+}
+
+.register-link button {
+  background: none;
+  border: none;
+  color: #6b4423;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+
+/* Dashboard Styles */
+.dashboard-container {
+  padding: 3rem 2rem;
+  background-color: #f5f5f1;
+  min-height: 80vh;
+}
+
+.dashboard-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.dashboard-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #6b4423;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.dashboard-title::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background-color: #6b4423;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.search-container {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.search-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #6b4423;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dashboard-rooms {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.dashboard-room-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-room-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-room-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.dashboard-room-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #6b4423;
+  padding: 1rem;
+  margin: 0;
+  text-align: center;
+}
+
+.dashboard-room-details {
+  text-align: center;
+  color: #666;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-book-button {
+  width: 80%;
+  margin: 1rem auto;
+  padding: 0.75rem;
+  background-color: #c9b18c;
+  color: #6b4423;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.dashboard-book-button:hover {
+  background-color: #6b4423;
+  color: white;
+}
+
+.back-to-home-button {
+  display: block;
+  margin: 0 auto;
+  padding: 0.75rem 2rem;
+  background-color: #6b4423;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.back-to-home-button:hover {
+  background-color: #8b5e3c;
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
   .nav-links {
     gap: 1rem;
@@ -479,7 +735,8 @@
   
   .special-offers-title,
   .about-us-title,
-  .rooms-title {
+  .rooms-title,
+  .dashboard-title {
     font-size: 2.5rem;
   }
   
@@ -498,5 +755,9 @@
   
   .footer-section:last-child {
     border-bottom: none;
+  }
+  
+  .search-container {
+    flex-direction: column;
   }
 }
