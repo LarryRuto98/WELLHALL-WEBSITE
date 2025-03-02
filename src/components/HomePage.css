@@ -1,0 +1,79 @@
+.home-page {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .home-page h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #6b4423;
+    margin-bottom: 2rem;
+  }
+  
+  .rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .room-card {
+    background: white;
+    border: 1px solid #e0d7c7;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .room-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .room-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #6b4423;
+    margin: 1rem 0 0.5rem;
+  }
+  
+  .room-card p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    margin: 0.5rem 1rem;
+  }
+  
+  .room-card .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #6b4423;
+  }
+  
+  .book-button {
+    background-color: #6b4423;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 1rem 0;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .book-button:hover:not(:disabled) {
+    background-color: #8b5e3c;
+    transform: translateY(-2px);
+  }
+  
+  .book-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }

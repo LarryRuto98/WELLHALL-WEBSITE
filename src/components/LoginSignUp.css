@@ -1,0 +1,134 @@
+/* Container */
+.login-signup-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Heading */
+.login-signup-container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  color: #333333;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #555555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333333;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #6b4423;
+  outline: none;
+  box-shadow: 0 0 5px rgba(107, 68, 35, 0.3);
+}
+
+/* Password Input Container */
+.password-input-container {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #6b4423;
+}
+
+.password-toggle:hover {
+  color: #4a2c1a;
+}
+
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #6b4423;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #4a2c1a;
+  transform: translateY(-2px);
+}
+
+.submit-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Toggle Button */
+.toggle-button {
+  display: block;
+  margin: 1rem auto 0;
+  background: none;
+  border: none;
+  color: #6b4423;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.toggle-button:hover {
+  color: #4a2c1a;
+}
+
+/* Close Button */
+.close-button {
+  display: block;
+  margin: 1rem auto 0;
+  background: none;
+  border: none;
+  color: #6b4423;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #4a2c1a;
+}
+
+/* Error Message */
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}

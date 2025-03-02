@@ -1,0 +1,168 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+/* Ensure the page covers the full viewport */
+.first-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Push footer to the bottom */
+}
+
+/* Hero Section */
+.hero-section {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6b4423; /* Warm brown color */
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.welcome-section {
+  max-width: 800px;
+  width: 90%;
+}
+
+.welcome-section h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.welcome-section p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #e0e0e0; /* Light gray for contrast */
+}
+
+.explore-button {
+  background-color: #8b5e3c; /* Slightly lighter brown */
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.explore-button:hover {
+  background-color: #a77a52; /* Lighter brown on hover */
+  transform: translateY(-2px);
+}
+
+/* Hotel Features Section */
+.hotel-features {
+  background: white;
+  padding: 4rem 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.hotel-features h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #6b4423;
+  margin-bottom: 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.feature-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #6b4423;
+  margin: 1rem 0 0.5rem;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Modal overlay for Login/SignUp */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .welcome-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .welcome-section p {
+    font-size: 1.2rem;
+  }
+
+  .hotel-features h2 {
+    font-size: 2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}

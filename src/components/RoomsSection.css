@@ -1,0 +1,49 @@
+.rooms-section {
+  padding: 2rem;
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.room-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.room-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.room-card h3 {
+  margin: 1rem 0 0.5rem;
+}
+
+.room-card p {
+  margin: 0.5rem 0;
+}
+
+.room-card .price {
+  font-weight: bold;
+}
+
+.room-card button {
+  background-color: #6b4423;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.room-card button:hover {
+  background-color: #8b5e3c;
+}

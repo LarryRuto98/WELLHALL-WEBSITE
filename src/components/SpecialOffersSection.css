@@ -1,0 +1,35 @@
+.special-offers-section {
+  text-align: center;
+  background-color: white;
+  padding: 4rem 2rem;
+}
+
+.special-offers-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #6b4423;
+  margin-bottom: 1rem;
+}
+
+.special-offers-section p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.view-offers-button {
+  background-color: #6b4423;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-offers-button:hover {
+  background-color: #8b5e3c;
+  transform: translateY(-2px);
+}
