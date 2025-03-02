@@ -1,0 +1,95 @@
+.footer {
+  background-color: #6b4423; /* Warm brown color */
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif; /* Default font for the footer */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px; /* Prevents sections from becoming too wide */
+  margin: 1rem 0;
+}
+
+.footer-section h3 {
+  font-family: 'Playfair Display', serif; /* Elegant serif font for headings */
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffd700; /* Gold color for headings */
+  text-transform: uppercase; /* Uppercase for a more formal look */
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-section ul li a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.footer-section ul li a:hover {
+  color: #ffd700; /* Gold color on hover */
+  text-decoration: underline;
+  transform: translateX(5px); /* Slight movement on hover */
+}
+
+.footer-bottom {
+  border-top: 1px solid #8b5e3c; /* Lighter brown for the border */
+  padding-top: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: #e0e0e0; /* Light gray for subtlety */
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .footer-section {
+    max-width: 100%; /* Full width on smaller screens */
+  }
+
+  .footer-section h3 {
+    font-size: 1.25rem; /* Slightly smaller headings on mobile */
+  }
+
+  .footer-section ul li a {
+    font-size: 0.85rem; /* Smaller font size for mobile */
+  }
+
+  .footer-bottom {
+    font-size: 0.8rem; /* Smaller font size for mobile */
+  }
+}

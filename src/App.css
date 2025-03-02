@@ -1,502 +1,214 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600&display=swap');
-
-.app-container {
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #f5f5f1;
-  display: flex;
-  flex-direction: column;
-}
-
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #f5f5f1;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.hotel-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-  color: #6b4423;
+/* Reset default margins and padding */
+html, body {
   margin: 0;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 2px rgba(107, 68, 35, 0.2);
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #6b4423;
-  font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 0.5px;
-  transition: color 0.3s ease, transform 0.2s ease;
-  position: relative;
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: #6b4423;
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-.nav-links a:hover {
-  color: #8b5e3c;
-  transform: translateY(-2px);
-}
-
-.book-now {
-  padding: 0.5rem 1rem;
-  background-color: #6b4423;
-  color: white !important;
-  border-radius: 4px;
-  position: absolute;
-  bottom: 0.5rem;
-}
-
-.book-now:hover::after {
-  width: 0;
-}
-
-.rooms-title-container {
-  padding: 4rem 2rem 2rem;
-  text-align: center;
-  background-color: #f5f5f1;
-}
-
-.rooms-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  color: #6b4423;
-  margin: 0;
-  position: relative;
-  display: inline-block;
-  padding-bottom: 1rem;
-}
-
-.rooms-title::after {
-  content: '';
-  position: absolute;
-  width: 100px;
-  height: 3px;
-  background-color: #6b4423;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.rooms-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-}
-
-.room-card {
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.room-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.room-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.room-card h2 {
-  font-family: 'Playfair Display', serif;
-  color: #6b4423;
-  padding: 1rem;
-  margin: 0;
-}
-
-.room-card p {
-  padding: 0 1rem;
-  color: #666;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.price {
-  font-weight: bold;
-  color: #6b4423 !important;
-}
-
-.book-button {
-  width: calc(100% - 2rem);
-  margin: 1rem;
-  padding: 0.75rem;
-  background-color: #6b4423;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.book-button:hover {
-  background-color: #8b5e3c;
-}
-
-/* Special Offers Page Styles */
-.special-offers-container {
-  padding: 3rem 2rem;
-  background-color: #f5f5f1;
-}
-
-.special-offers-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  color: #6b4423;
-  text-align: center;
-  margin-bottom: 3rem;
-  position: relative;
-  text-shadow: 1px 1px 2px rgba(107, 68, 35, 0.2);
-}
-
-.special-offers-title::after {
-  content: '';
-  position: absolute;
-  width: 100px;
-  height: 3px;
-  background-color: #6b4423;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.offers-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 4rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.offer-card {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  background-color: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.offer-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.offer-card:nth-child(even) {
-  grid-template-columns: 1fr 1fr;
-}
-
-.offer-card:nth-child(odd) {
-  grid-template-columns: 1fr 1fr;
-}
-
-.offer-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.offer-content {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.offer-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
-  color: #6b4423;
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-.offer-title::after {
-  content: '';
-  position: absolute;
-  width: 50px;
-  height: 2px;
-  background-color: #6b4423;
-  bottom: -10px;
-  left: 0;
-}
-
-.offer-details {
-  margin-top: 1rem;
-}
-
-.offer-details ol {
-  padding-left: 1.2rem;
-  margin-bottom: 1.5rem;
-}
-
-.offer-details li {
-  margin-bottom: 0.8rem;
-  color: #555;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.offer-details li strong {
-  color: #6b4423;
-  font-weight: 600;
-}
-
-.offer-details p {
-  margin: 0.5rem 0;
-  color: #555;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.book-offer-button {
-  align-self: flex-start;
-  padding: 0.75rem 2rem;
-  background-color: #6b4423;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  margin-top: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.book-offer-button:hover {
-  background-color: #8b5e3c;
-  transform: translateY(-2px);
-}
-
-/* About Us Page Styles */
-.about-us-container {
-  padding: 3rem 2rem;
-  background-color: #f5f5f1;
-}
-
-.about-us-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  color: #6b4423;
-  text-align: center;
-  margin-bottom: 3rem;
-  position: relative;
-  text-shadow: 1px 1px 2px rgba(107, 68, 35, 0.2);
-}
-
-.about-us-title::after {
-  content: '';
-  position: absolute;
-  width: 100px;
-  height: 3px;
-  background-color: #6b4423;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.about-us-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  background-color: #f5f5f1;
-}
-
-.about-us-text {
-  padding: 2rem;
-  color: #6b4423;
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.8;
-  text-align: justify;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 1.3rem;
-}
-
-.about-us-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Footer Styles */
-.footer {
-  background-color: #6b4423;
-  color: #f5f5f1;
   padding: 0;
-  margin-top: 3rem;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.footer-section {
-  padding: 2rem;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-section:last-child {
-  border-right: none;
-}
-
-.footer-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  margin-bottom: 1.4rem;
-  position: relative;
-  color: #f5f5f1;
-}
-
-.footer-info {
+  height: 100%;
   font-family: 'Montserrat', sans-serif;
-  line-height: 1.8;
-}
-
-.footer-info p {
-  margin: 0.5rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.social-icons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.social-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  color: #f5f5f1;
-  text-decoration: none;
-}
-
-.social-icon:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-3px);
-}
-
-.page-navigation {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  gap: 1rem;
-}
-
-.page-button {
-  padding: 0.75rem 1.5rem;
-  background-color: #e8e8e3;
   color: #6b4423;
-  border: 1px solid #6b4423;
-  border-radius: 4px;
+  background-color: #f5f5f1;
+  line-height: 1.6;
+}
+
+/* Ensure the root container fills the viewport */
+#root {
+  height: 100%;
+}
+
+/* App container */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f5f1;
+}
+
+/* Ensure sections fill the available space */
+section {
+  flex: 1;
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #4a2c1a;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+  font-family: 'Playfair Display', serif; /* Elegant serif font for headings */
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.75rem;
+  line-height: 1.4;
+}
+
+p {
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  color: #6b4423;
+  font-size: 1rem;
+}
+
+/* Buttons */
+button {
+  background-color: #6b4423;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border-radius: 4px;
   font-weight: 500;
-  transition: all 0.3s ease;
 }
 
-.page-button:hover {
-  background-color: #6b4423;
-  color: white;
+button:hover {
+  background-color: #4a2c1a;
+  transform: translateY(-2px);
 }
 
-.page-button.active {
-  background-color: #6b4423;
-  color: white;
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
 }
 
+/* Forms */
+input, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  color: #6b4423;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #6b4423;
+  box-shadow: 0 0 8px rgba(107, 68, 35, 0.3);
+}
+
+/* Links */
+a {
+  color: #6b4423;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #4a2c1a;
+  text-decoration: underline;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+/* Error Messages */
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* Overlay for Modals */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px); /* Blur effect for the background */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+  animation: fadeIn 0.3s ease-in-out; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cards (for features or other content) */
+.card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .nav-links {
-    gap: 1rem;
+  h1 {
+    font-size: 2rem;
   }
-  
-  .hotel-title {
-    font-size: 1.8rem;
+
+  h2 {
+    font-size: 1.75rem;
   }
-  
-  .offer-card,
-  .offer-card:nth-child(even),
-  .offer-card:nth-child(odd),
-  .about-us-content {
-    grid-template-columns: 1fr;
+
+  h3 {
+    font-size: 1.5rem;
   }
-  
-  .offer-image {
-    height: 250px;
+
+  p {
+    font-size: 0.9rem;
   }
-  
-  .special-offers-title,
-  .about-us-title,
-  .rooms-title {
-    font-size: 2.5rem;
+
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
   }
-  
-  .offer-title {
-    font-size: 1.8rem;
-  }
-  
-  .footer-content {
-    grid-template-columns: 1fr;
-  }
-  
-  .footer-section {
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .footer-section:last-child {
-    border-bottom: none;
+
+  .modal-content {
+    padding: 1.5rem;
   }
 }
