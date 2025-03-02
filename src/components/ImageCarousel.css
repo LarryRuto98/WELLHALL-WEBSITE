@@ -1,0 +1,26 @@
+.carousel-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .carousel-image {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
+  
+  /* Override default slick dots color */
+  .slick-dots {
+    position: absolute;
+    bottom: 20px;
+  }
+  
+  .slick-dots li button:before {
+    color: #6b4423; /* Use your theme color */
+    font-size: 12px;
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: #e64a19; /* Use a darker shade of your theme color */
+  }

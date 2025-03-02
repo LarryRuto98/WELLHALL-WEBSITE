@@ -1,0 +1,214 @@
+.reviews-container {
+  padding: 3rem 2rem;
+  background-color: #f5f5f1;
+  text-align: center;
+}
+
+.reviews-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #6b4423;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.reviews-title::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background-color: #6b4423;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.review-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.review-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: #6b4423;
+  margin: 0;
+}
+
+.review-rating {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.star {
+  color: #ffd700; /* Gold color for stars */
+  font-size: 1.2rem;
+}
+
+.review-comment {
+  font-family: 'Montserrat', sans-serif;
+  color: #555;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.page-navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.page-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #e8e8e3;
+  color: #6b4423;
+  border: 1px solid #6b4423;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.page-button:hover {
+  background-color: #6b4423;
+  color: white;
+}
+
+.page-button.active {
+  background-color: #6b4423;
+  color: white;
+}
+
+.reviews-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color:  #6b4423; /* Adjust this to match your theme color */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .add-review-section h2 {
+    font-family: 'Playfair Display', serif; /* Match the font family */
+    font-size: 2rem; /* Match the size of "Customer Reviews" */
+    color: #6b4423; /* Theme color */
+    margin-bottom: 1.5rem; /* Add some spacing below the title */
+    text-align: center; /* Center the title */
+    position: relative; /* For the underline effect */
+  }
+  
+  .add-review-section h2::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: #6b4423; /* Theme color */
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .add-review-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-review-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color:  #6b4423;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  .submit-review-button {
+    background-color: #6b4423;; /* Replace with your theme color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-review-button:hover {
+    background-color: #6b4423;; /* Darker shade of your theme color */
+  }.page-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .page-navigation button {
+    padding: 0.75rem 1.5rem;
+    background-color: #e8e8e3;
+    color: #6b4423;
+    border: 1px solid #6b4423;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .page-navigation button:hover {
+    background-color: #6b4423;
+    color: white;
+  }
+  
+  .page-navigation button.active {
+    background-color: #6b4423;
+    color: white;
+  }
