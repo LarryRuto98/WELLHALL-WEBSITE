@@ -1,3 +1,4 @@
+
 /* Reset default margins and padding */
 html, body {
   margin: 0;
@@ -205,10 +206,13 @@ a:hover {
 
   button {
     padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600&display=swap');
 
-  .modal-content {
-    padding: 1.5rem;
-  }
-}
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f5f5f1;
+  display: flex;
+  flex-di
