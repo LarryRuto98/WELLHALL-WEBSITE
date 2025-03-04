@@ -1,12 +1,20 @@
 import { FaSearch } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 
 function Dashboard({ rooms, searchQuery, setSearchQuery, handleBooking, setCurrentPage }) {
+  const navigate = useNavigate();
+
   const filteredRooms = searchQuery 
     ? rooms.filter(room => 
         room.type.toLowerCase().includes(searchQuery.toLowerCase()) || 
         room.description.toLowerCase().includes(searchQuery.toLowerCase()))
     : rooms;
+
+  const handleBookNow = (room) => {
+    handleBooking(room);
+    navigate('/booking-form');
+  };
 
   return (
     <div className="dashboard-container">
@@ -34,7 +42,7 @@ function Dashboard({ rooms, searchQuery, setSearchQuery, handleBooking, setCurre
             <p className="dashboard-room-details">MAX {room.maxGuests} GUESTS / {room.bedConfig}</p>
             <button 
               className="dashboard-book-button"
-              onClick={() => handleBooking(room)}
+              onClick={() => handleBookNow(room)}
             >
               Book Now
             </button>

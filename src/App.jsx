@@ -99,6 +99,11 @@ function App() {
   };
 
   const fetchUserBookings = async () => {
+    if (!user || !user.id) {
+      console.error('User object is null or undefined');
+      return;
+    }
+
     try {
       const response = await axios.get(`${API_URL}/bookings/user/${user.id}`);
       setBookings(response.data);
@@ -112,6 +117,7 @@ function App() {
     if (isLoggedIn) {
       setCurrentPage('booking-form');
     } else {
+      setCurrentPage('login');
       setShowLoginModal(true);
     }
   };
@@ -120,6 +126,7 @@ function App() {
     if (isLoggedIn) {
       alert(`Booking ${offer.title} package. Our team will contact you shortly with details.`);
     } else {
+      setCurrentPage('login');
       setShowLoginModal(true);
     }
   };
@@ -303,7 +310,7 @@ function App() {
                 setCurrentPage={setCurrentPage}
               />
             ) : (
-              <Navigate to="/" replace />
+              <Navigate to="/login" replace />
             )
           } />
           <Route path="/payment" element={
