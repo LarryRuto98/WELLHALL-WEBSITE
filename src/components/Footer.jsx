@@ -17,8 +17,16 @@ function Footer() {
         
         
         <div className="footer-section">
-          {/* Empty section for layout */}
-        </div>
+          <h3 className="footer-title">Quick Links</h3>
+          <ul className="footer-info">
+          <li>Home</li>
+          <li>Rooms</li>
+          <li>Offers</li>
+          <li>About Us</li>
+          </ul>
+          </div>
+
+
         
         <div className="footer-section">
           <h3 className="footer-title">Reservations Office</h3>
