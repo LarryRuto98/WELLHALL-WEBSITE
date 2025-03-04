@@ -97,7 +97,7 @@ def create_database():
         rooms = [
             {
                 "type": "Deluxe Room",
-                "price": 150,
+                "price": 9500,
                 "description": "Spacious room with a king-size bed and city view",
                 "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
                 "max_guests": 2,

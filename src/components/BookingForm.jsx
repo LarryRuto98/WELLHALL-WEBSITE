@@ -136,19 +136,22 @@ function BookingForm({ room, onDateSelection, bookingDates, setCurrentPage }) {
           
           <div className="form-group">
             <label>
-              <FaUsers /> Number of Guests
+             <FaUsers /> Number of Guests
             </label>
             <select 
               value={guests} 
               onChange={(e) => setGuests(parseInt(e.target.value))}
               className="guests-select"
             >
-              {[...Array(room.maxGuests)].map((_, i) => (
-                <option key={i + 1} value={i + 1}>{i + 1} {i === 0 ? 'Guest' : 'Guests'}</option>
-              ))}
-            </select>
-            {errors.guests && <span className="error-message">{errors.guests}</span>}
-          </div>
+            {[...Array(room.maxGuests || 1)].map((_, i) => (
+            <option key={i + 1} value={i + 1}>
+            {i + 1} {i === 0 ? 'Guest' : 'Guests'}
+      </option>
+    ))}
+  </select>
+  {errors.guests && <span className="error-message">{errors.guests}</span>}
+</div>
+
           
           <div className="form-group">
             <label>Special Requests (Optional)</label>
