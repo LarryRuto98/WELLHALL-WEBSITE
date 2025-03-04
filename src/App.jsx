@@ -118,7 +118,6 @@ function App() {
       setCurrentPage('booking-form');
     } else {
       setShowLoginModal(true);
-      setCurrentPage('login');
     }
   };
 
@@ -127,7 +126,6 @@ function App() {
       alert(`Booking ${offer.title} package. Our team will contact you shortly with details.`);
     } else {
       setShowLoginModal(true);
-      setCurrentPage('login');
     }
   };
 
@@ -271,6 +269,7 @@ function App() {
               currentPage="home" 
               setCurrentPage={setCurrentPage} 
               isLoggedIn={isLoggedIn}
+              setShowLoginModal={setShowLoginModal}
             />
           } />
           <Route path="/offers" element={

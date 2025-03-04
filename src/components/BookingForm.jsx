@@ -175,11 +175,11 @@ function BookingForm({ room, onDateSelection, bookingDates, setCurrentPage }) {
             </div>
             <div className="summary-item">
               <span>Price per Night:</span>
-              <span>${room.price}</span>
+              <span>ksh{room.price}</span>
             </div>
             <div className="summary-item total">
               <span>Total:</span>
-              <span>${calculateTotal()}</span>
+              <span>ksh{calculateTotal()}</span>
             </div>
           </div>
           
