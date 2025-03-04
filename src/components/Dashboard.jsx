@@ -11,7 +11,7 @@ function Dashboard({ rooms, searchQuery, setSearchQuery, handleBooking, setCurre
   return (
     <div className="dashboard-container">
       <div className="dashboard-header">
-        <h1 className="dashboard-title">AVAILABLE ROOMS</h1>
+        <h1 className="dashboard-title">PROCEED TO BOOK ROOMS</h1>
         <div className="search-container">
           <input 
             type="text" 

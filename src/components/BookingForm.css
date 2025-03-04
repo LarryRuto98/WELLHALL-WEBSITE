@@ -1,0 +1,250 @@
+.booking-form-container {
+    padding: 3rem 2rem;
+    background-color: #f5f5f1;
+  }
+  
+  .booking-form-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .booking-form-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #6b4423;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  
+  .booking-form-header h1::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: #6b4423;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .booking-form-header p {
+    font-family: 'Montserrat', sans-serif;
+    color: #666;
+    font-size: 1.2rem;
+  }
+  
+  .booking-form-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .booking-form-room-details {
+    padding: 2rem;
+  }
+  
+  .booking-room-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .booking-room-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #6b4423;
+    margin-bottom: 1rem;
+  }
+  
+  .room-description {
+    font-family: 'Montserrat', sans-serif;
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .room-price {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #6b4423;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .room-capacity {
+    font-family: 'Montserrat', sans-serif;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  
+  .room-amenities {
+    margin-top: 1.5rem;
+  }
+  
+  .room-amenities h3 {
+    font-family: 'Playfair Display', serif;
+    color: #6b4423;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .room-amenities ul {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  
+  .room-amenities li {
+    font-family: 'Montserrat', sans-serif;
+    color: #666;
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  
+  .room-amenities li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #6b4423;
+    font-weight: bold;
+  }
+  
+  .booking-form {
+    padding: 2rem;
+    background-color: #f9f9f7;
+    border-left: 1px solid #eee;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #6b4423;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .date-picker {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .guests-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .special-requests {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .error-message {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .booking-summary {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .booking-summary h3 {
+    font-family: 'Playfair Display', serif;
+    color: #6b4423;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #eee;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .summary-item.total {
+    font-weight: 600;
+    color: #6b4423;
+    font-size: 1.2rem;
+    border-bottom: none;
+    margin-top: 0.5rem;
+  }
+  
+  .proceed-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #6b4423;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .proceed-button:hover {
+    background-color: #8b5e3c;
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    .booking-form-content {
+      grid-template-columns: 1fr;
+    }
+    
+    .booking-form {
+      border-left: none;
+      border-top: 1px solid #eee;
+    }
+    
+    .booking-form-header h1 {
+      font-size: 2.5rem;
+    }
+    
+    .room-amenities ul {
+      grid-template-columns: 1fr;
+    }
+  }

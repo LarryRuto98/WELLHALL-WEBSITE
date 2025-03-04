@@ -14,7 +14,7 @@ function Home({ rooms, handleBooking, currentPage, setCurrentPage }) {
             <img src={room.image} alt={room.type} />
             <h2>{room.type}</h2>
             <p>{room.description}</p>
-            <p className="price">${room.price} per night</p>
+            <p className="price">ksh{room.price} per night</p>
             <button onClick={() => handleBooking(room)} className="book-button">
               BOOK YOUR STAY
             </button>

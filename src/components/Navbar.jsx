@@ -1,23 +1,41 @@
-import { FaSignOutAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { FaSignOutAlt, FaCalendarAlt, FaUser } from 'react-icons/fa';
 import './Navbar.css';
 
-function Navbar({ isLoggedIn, setCurrentPage, setShowLoginModal, handleLogout }) {
+function Navbar({ isLoggedIn, setCurrentPage, setShowLoginModal, handleLogout, user }) {
   return (
     <nav className="navbar">
-      <h1 className="hotel-title">THE WELLHALL HOTEL</h1>
+      <Link to="/" className="hotel-title" onClick={() => setCurrentPage('welcome')}>
+        THE WELLHALL HOTEL
+      </Link>
       <div className="nav-links">
-        <a href="#home" onClick={() => setCurrentPage('home')}>HOME</a>
+        <Link to="/rooms" onClick={() => setCurrentPage('home')}>ROOMS</Link>
+        <Link to="/offers" onClick={() => setCurrentPage('offers')}>OFFERS</Link>
+        <Link to="/about" onClick={() => setCurrentPage('about')}>ABOUT</Link>
+        
         {isLoggedIn ? (
           <>
-            <a href="#dashboard" onClick={() => setCurrentPage('dashboard')}>MY ACCOUNT</a>
-            <a href="#logout" onClick={handleLogout} className="logout-button">
-              LOGOUT <FaSignOutAlt />
-            </a>
+            <div className="user-dropdown">
+              <button className="user-button">
+                <FaUser /> {user.name.split(' ')[0]}
+              </button>
+              <div className="dropdown-content">
+                <Link to="/dashboard" onClick={() => setCurrentPage('dashboard')}>
+                  Dashboard
+                </Link>
+                <Link to="/my-bookings" onClick={() => setCurrentPage('my-bookings')}>
+                  <FaCalendarAlt /> My Bookings
+                </Link>
+                <Link to="/" onClick={handleLogout} className="logout-option">
+                  <FaSignOutAlt /> Logout
+                </Link>
+              </div>
+            </div>
           </>
         ) : (
           <>
             <a href="#login" onClick={() => setShowLoginModal(true)}>LOGIN</a>
-            <a href="#book" className="book-now">BOOK NOW</a>
+            <a href="#book" className="book-now" onClick={() => setShowLoginModal(true)}>BOOK NOW</a>
           </>
         )}
       </div>

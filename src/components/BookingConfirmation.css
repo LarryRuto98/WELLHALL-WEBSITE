@@ -1,0 +1,200 @@
+.confirmation-container {
+    padding: 3rem 2rem;
+    background-color: #f5f5f1;
+  }
+  
+  .confirmation-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .confirmation-icon {
+    font-size: 4rem;
+    color: #27ae60;
+    margin-bottom: 1rem;
+  }
+  
+  .confirmation-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #6b4423;
+    margin-bottom: 1rem;
+  }
+  
+  .confirmation-header p {
+    font-family: 'Montserrat', sans-serif;
+    color: #666;
+    font-size: 1.2rem;
+  }
+  
+  .confirmation-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .confirmation-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .confirmation-details {
+    padding: 2rem;
+  }
+  
+  .confirmation-details h2 {
+    font-family: 'Playfair Display', serif;
+    color: #6b4423;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .confirmation-details h2::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    background-color: #6b4423;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .confirmation-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .info-item {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .info-icon {
+    font-size: 1.5rem;
+    color: #6b4423;
+    margin-top: 0.25rem;
+  }
+  
+  .info-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #6b4423;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .info-item p {
+    font-family: 'Montserrat', sans-serif;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+  
+  .room-confirmation {
+    background-color: #f9f9f7;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .confirmation-room-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .room-confirmation-details h3 {
+    font-family: 'Playfair Display', serif;
+    color: #6b4423;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .room-confirmation-details p {
+    font-family: 'Montserrat', sans-serif;
+    color: #666;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+  
+  .room-price {
+    font-weight: 600;
+    color: #6b4423 !important;
+    font-size: 1.1rem;
+  }
+  
+  .confirmation-message {
+    background-color: #e8f4f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+  
+  .confirmation-message p {
+    font-family: 'Montserrat', sans-serif;
+    color: #2980b9;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+  
+  .confirmation-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .view-bookings-button, .back-to-home-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .view-bookings-button {
+    background-color: #6b4423;
+    color: white;
+  }
+  
+  .back-to-home-button {
+    background-color: #f5f5f1;
+    color: #6b4423;
+    border: 1px solid #6b4423;
+  }
+  
+  .view-bookings-button:hover {
+    background-color: #8b5e3c;
+    transform: translateY(-2px);
+  }
+  
+  .back-to-home-button:hover {
+    background-color: #e8e8e3;
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    .confirmation-card {
+      grid-template-columns: 1fr;
+    }
+    
+    .confirmation-header h1 {
+      font-size: 2.5rem;
+    }
+    
+    .confirmation-actions {
+      flex-direction: column;
+    }
+  }

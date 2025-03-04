@@ -15,6 +15,7 @@ function Footer() {
           </div>
         </div>
         
+        
         <div className="footer-section">
           {/* Empty section for layout */}
         </div>
