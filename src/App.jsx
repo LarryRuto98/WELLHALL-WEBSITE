@@ -117,8 +117,8 @@ function App() {
     if (isLoggedIn) {
       setCurrentPage('booking-form');
     } else {
-      setCurrentPage('login');
       setShowLoginModal(true);
+      setCurrentPage('login');
     }
   };
 
@@ -126,8 +126,8 @@ function App() {
     if (isLoggedIn) {
       alert(`Booking ${offer.title} package. Our team will contact you shortly with details.`);
     } else {
-      setCurrentPage('login');
       setShowLoginModal(true);
+      setCurrentPage('login');
     }
   };
 
@@ -268,9 +268,9 @@ function App() {
           <Route path="/rooms" element={
             <Home 
               rooms={rooms} 
-              handleBooking={handleBooking} 
               currentPage="home" 
               setCurrentPage={setCurrentPage} 
+              isLoggedIn={isLoggedIn}
             />
           } />
           <Route path="/offers" element={
@@ -310,7 +310,7 @@ function App() {
                 setCurrentPage={setCurrentPage}
               />
             ) : (
-              <Navigate to="/login" replace />
+              <Navigate to="/" replace />
             )
           } />
           <Route path="/payment" element={

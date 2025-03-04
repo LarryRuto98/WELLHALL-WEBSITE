@@ -106,7 +106,7 @@ def create_database():
             },
             {
                 "type": "Executive Suite",
-                "price": 250,
+                "price": 7500,
                 "description": "Luxurious suite with separate living area and panoramic views",
                 "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
                 "max_guests": 3,
@@ -115,7 +115,7 @@ def create_database():
             },
             {
                 "type": "Family Room",
-                "price": 200,
+                "price": 8000,
                 "description": "Comfortable room for families with two queen beds",
                 "image": "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
                 "max_guests": 4,
@@ -124,7 +124,7 @@ def create_database():
             },
             {
                 "type": "Presidential Suite",
-                "price": 500,
+                "price": 15000,
                 "description": "Our most luxurious accommodation with premium amenities and services",
                 "image": "https://images.unsplash.com/photo-1591088398332-8a7791972843?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
                 "max_guests": 4,
@@ -133,7 +133,7 @@ def create_database():
             },
             {
                 "type": "Standard Room",
-                "price": 100,
+                "price": 4000,
                 "description": "Cozy room with all essential amenities for a comfortable stay",
                 "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
                 "max_guests": 2,

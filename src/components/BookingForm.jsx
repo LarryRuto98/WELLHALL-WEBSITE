@@ -84,7 +84,7 @@ function BookingForm({ room, onDateSelection, bookingDates, setCurrentPage }) {
           <div className="booking-room-info">
             <h2>{room.type}</h2>
             <p className="room-description">{room.description}</p>
-            <p className="room-price">${room.price} per night</p>
+            <p className="room-price">Ksh{room.price} per night</p>
             <p className="room-capacity">Max {room.maxGuests} Guests / {room.bedConfig}</p>
             
             <div className="room-amenities">
