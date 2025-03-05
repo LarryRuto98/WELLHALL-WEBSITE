@@ -43,8 +43,9 @@ function BookingForm({ room, onDateSelection, bookingDates, setCurrentPage }) {
       }
     }
     
-    if (guests < 1) newErrors.guests = 'At least 1 guest is required';
-    if (guests > room.maxGuests) newErrors.guests = `Maximum ${room.maxGuests} guests allowed`;
+    if (guests < 1 || guests > 30) {
+      newErrors.guests = 'Number of guests must be between 1 and 30';
+    }
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -136,22 +137,18 @@ function BookingForm({ room, onDateSelection, bookingDates, setCurrentPage }) {
           
           <div className="form-group">
             <label>
-             <FaUsers /> Number of Guests
+              <FaUsers /> Number of Guests
             </label>
-            <select 
-              value={guests} 
+            <input
+              type="number"
+              value={guests}
               onChange={(e) => setGuests(parseInt(e.target.value))}
-              className="guests-select"
-            >
-            {[...Array(room.maxGuests || 1)].map((_, i) => (
-            <option key={i + 1} value={i + 1}>
-            {i + 1} {i === 0 ? 'Guest' : 'Guests'}
-      </option>
-    ))}
-  </select>
-  {errors.guests && <span className="error-message">{errors.guests}</span>}
-</div>
-
+              min="1"
+              max="30"
+              className="guests-input"
+            />
+            {errors.guests && <span className="error-message">{errors.guests}</span>}
+          </div>
           
           <div className="form-group">
             <label>Special Requests (Optional)</label>
@@ -179,7 +176,7 @@ function BookingForm({ room, onDateSelection, bookingDates, setCurrentPage }) {
             </div>
             <div className="summary-item total">
               <span>Total:</span>
-              <span>${calculateTotal()}</span>
+              <span>Ksh{calculateTotal()}</span>
             </div>
           </div>
           

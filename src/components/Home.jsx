@@ -1,14 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
-function Home({ rooms, currentPage, setCurrentPage, isLoggedIn }) {
+function Home({ rooms, currentPage, setCurrentPage, isLoggedIn, setShowLoginModal }) {
   const navigate = useNavigate();
 
   const handleBooking = (room) => {
     if (isLoggedIn) {
       navigate('/dashboard');
     } else {
-      setCurrentPage('login');
+      setShowLoginModal(true);
     }
   };
 

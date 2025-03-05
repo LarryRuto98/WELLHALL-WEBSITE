@@ -34,7 +34,7 @@ function SpecialOffers({ specialOffers, handleBookOffer, currentPage, setCurrent
         ))}
       </div>
       
-      <div className="page-navigation">
+      {/* <div className="page-navigation">
         <button 
           className={`page-button ${currentPage === 'home' ? 'active' : ''}`}
           onClick={() => setCurrentPage('home')}
@@ -52,8 +52,8 @@ function SpecialOffers({ specialOffers, handleBookOffer, currentPage, setCurrent
           onClick={() => setCurrentPage('about')}
         >
           About Us <FaArrowRight />
-        </button>
-      </div>
+        </button> */}
+      {/* </div> */}
     </div>
   );
 }

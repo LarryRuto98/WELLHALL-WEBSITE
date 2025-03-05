@@ -17,8 +17,16 @@ function Footer() {
         
         
         <div className="footer-section">
-          {/* Empty section for layout */}
-        </div>
+          <h3 className="footer-title">OUR BRANCH HOTELS CITIES</h3>
+          <ul className="footer-info">
+          <li>Mombasa</li>
+          <li>Eldoret</li>
+          <li>Kisumu</li>
+          <li>Nairobi</li>
+          </ul>
+          </div>
+
+
         
         <div className="footer-section">
           <h3 className="footer-title">Reservations Office</h3>

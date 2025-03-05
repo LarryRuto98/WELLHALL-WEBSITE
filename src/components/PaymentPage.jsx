@@ -151,7 +151,7 @@ function PaymentPage({ room, bookingDates, onConfirmPayment, setCurrentPage }) {
                 <input 
                   type="text" 
                   id="phone-number" 
-                  placeholder="e.g., +254712345678" 
+                  placeholder="e.g., 254712345678" 
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                   disabled={isProcessing}

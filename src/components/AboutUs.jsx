@@ -14,7 +14,7 @@ function AboutUs({ aboutUsContent, currentPage, setCurrentPage }) {
         <img src={aboutUsContent.image} alt="The Wellhall Hotel" className="about-us-image" />
       </div>
       
-      <div className="page-navigation">
+      {/* <div className="page-navigation">
         <button 
           className={`page-button ${currentPage === 'home' ? 'active' : ''}`}
           onClick={() => setCurrentPage('home')}
@@ -34,7 +34,7 @@ function AboutUs({ aboutUsContent, currentPage, setCurrentPage }) {
           About Us
         </button>
       </div>
-      
+       */}
       {/* Footer only appears on the About Us page */}
       <Footer />
     </div>
