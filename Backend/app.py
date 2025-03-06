@@ -9,9 +9,14 @@ import os
 from datetime import datetime, timedelta
 import json
 from dotenv import load_dotenv
+import logging
 
 # Load environment variables
 load_dotenv()
+
+# Configure logging
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
@@ -27,10 +32,27 @@ jwt = JWTManager(app)
 app.config['MAIL_SERVER'] = os.getenv("MAIL_SERVER", "smtp.gmail.com")
 app.config['MAIL_PORT'] = int(os.getenv("MAIL_PORT", 587))
 app.config['MAIL_USE_TLS'] = os.getenv("MAIL_USE_TLS", "True") == "True"
-app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME", "your-email@gmail.com")
-app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD", "your-password")
-app.config['MAIL_DEFAULT_SENDER'] = os.getenv("MAIL_DEFAULT_SENDER", "your-email@gmail.com")
+app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")
+app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv("MAIL_DEFAULT_SENDER")
+app.config['MAIL_DEBUG'] = os.getenv("MAIL_DEBUG", "True") == "True"
+
 mail = Mail(app)
+
+def send_email(subject, recipient, html_content):
+    try:
+        logger.info(f"Attempting to send email to {recipient}")
+        msg = Message(
+            subject=subject,
+            recipients=[recipient],
+            html=html_content
+        )
+        mail.send(msg)
+        logger.info("Email sent successfully")
+        return True
+    except Exception as e:
+        logger.error(f"Failed to send email: {str(e)}")
+        return False
 
 # Database connection function
 def get_db_connection():
@@ -85,6 +107,20 @@ def register():
         
         # Create access token
         access_token = create_access_token(identity=user_id)
+        
+        # Send welcome email
+        welcome_html = f"""
+        <h1>Welcome to The Wellhall Hotel</h1>
+        <p>Dear {name},</p>
+        <p>Thank you for registering with The Wellhall Hotel. We're excited to have you as our guest.</p>
+        <p>You can now book rooms, view special offers, and manage your bookings.</p>
+        <p>Best regards,<br>The Wellhall Hotel Team</p>
+        """
+        send_email(
+            subject="Welcome to The Wellhall Hotel",
+            recipient=email,
+            html_content=welcome_html
+        )
         
         conn.close()
         
@@ -332,27 +368,28 @@ def create_booking():
         }
         
         # Send confirmation email
-        try:
-            msg = Message(
-                subject="Booking Confirmation - The Wellhall Hotel",
-                recipients=[user['email']],
-                html=f"""
-                <h1>Booking Confirmation</h1>
-                <p>Dear {user['name']},</p>
-                <p>Thank you for choosing The Wellhall Hotel. Your booking has been confirmed.</p>
-                <h2>Booking Details</h2>
-                <p><strong>Room:</strong> {room['type']}</p>
-                <p><strong>Check-in:</strong> {booking['check_in']}</p>
-                <p><strong>Check-out:</strong> {booking['check_out']}</p>
-                <p><strong>Guests:</strong> {guests}</p>
-                <p><strong>Total Amount:</strong> ${payment_details.get('amount')}</p>
-                <p>We look forward to welcoming you to The Wellhall Hotel.</p>
-                <p>Best regards,<br>The Wellhall Hotel Team</p>
-                """
-            )
-            mail.send(msg)
-        except Exception as e:
-            print(f"Error sending email: {e}")
+        confirmation_html = f"""
+        <h1>Booking Confirmation</h1>
+        <p>Dear {user['name']},</p>
+        <p>Thank you for choosing The Wellhall Hotel. Your booking has been confirmed.</p>
+        <h2>Booking Details</h2>
+        <p><strong>Room:</strong> {room['type']}</p>
+        <p><strong>Check-in:</strong> {booking['check_in']}</p>
+        <p><strong>Check-out:</strong> {booking['check_out']}</p>
+        <p><strong>Guests:</strong> {guests}</p>
+        <p><strong>Total Amount:</strong> ${payment_details.get('amount')}</p>
+        <p>We look forward to welcoming you to The Wellhall Hotel.</p>
+        <p>Best regards,<br>The Wellhall Hotel Team</p>
+        """
+        
+        email_sent = send_email(
+            subject="Booking Confirmation - The Wellhall Hotel",
+            recipient=user['email'],
+            html_content=confirmation_html
+        )
+        
+        if not email_sent:
+            logger.warning(f"Failed to send confirmation email to {user['email']}")
         
         conn.close()
         
@@ -467,25 +504,26 @@ def cancel_booking(booking_id):
         room = cursor.fetchone()
         
         # Send cancellation email
-        try:
-            msg = Message(
-                subject="Booking Cancellation - The Wellhall Hotel",
-                recipients=[user['email']],
-                html=f"""
-                <h1>Booking Cancellation</h1>
-                <p>Dear {user['name']},</p>
-                <p>Your booking at The Wellhall Hotel has been cancelled as requested.</p>
-                <h2>Booking Details</h2>
-                <p><strong>Room:</strong> {room['type']}</p>
-                <p><strong>Check-in:</strong> {booking['check_in']}</p>
-                <p><strong>Check-out:</strong> {booking['check_out']}</p>
-                <p>If you have any questions, please contact our customer service.</p>
-                <p>Best regards,<br>The Wellhall Hotel Team</p>
-                """
-            )
-            mail.send(msg)
-        except Exception as e:
-            print(f"Error sending email: {e}")
+        cancellation_html = f"""
+        <h1>Booking Cancellation</h1>
+        <p>Dear {user['name']},</p>
+        <p>Your booking at The Wellhall Hotel has been cancelled as requested.</p>
+        <h2>Booking Details</h2>
+        <p><strong>Room:</strong> {room['type']}</p>
+        <p><strong>Check-in:</strong> {booking['check_in']}</p>
+        <p><strong>Check-out:</strong> {booking['check_out']}</p>
+        <p>If you have any questions, please contact our customer service.</p>
+        <p>Best regards,<br>The Wellhall Hotel Team</p>
+        """
+        
+        email_sent = send_email(
+            subject="Booking Cancellation - The Wellhall Hotel",
+            recipient=user['email'],
+            html_content=cancellation_html
+        )
+        
+        if not email_sent:
+            logger.warning(f"Failed to send cancellation email to {user['email']}")
         
         conn.close()
         
